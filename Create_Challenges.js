@@ -20,35 +20,17 @@ let questions = require("../questions");
     await adminLinkanchor.click();
     // loaders=> 
     // ***************************************Manage challenges******************************************
-    // let adminPageUrl = await adminLinkanchor.getAttribute("href");
-    // await driver.get(adminPageUrl);
-    // stale element => selected elements were in the page but they are not currently here
     await waitForLoader();
     let manageTabs = await driver.findElements(swd.By.css(".administration header ul li"));
     await manageTabs[1].click();
 
     let ManageChallengePage = await driver.getCurrentUrl();
-
-    // let questions = require(questionsFile);
     // Json file read
     for (let i = 0; i < questions.length; i++) {
       await driver.get(ManageChallengePage)
       await waitForLoader();
       await createNewChallenge(questions[i]);
     }
-    // content 
-    // createchallenge
-    // console.log("All code editor have some data");
-    // await driver.executeScript("alert('Hello All')"); 
-    //challenge Name 
-    // Description
-    // Problem Statement
-    // Input Format
-    // Constraints
-    // Output Format
-    //Tags
-    // save changes
-    //  manage tabs
   } catch (err) {
     console.log(err);
   }
@@ -60,12 +42,6 @@ async function createNewChallenge(question) {
   await waitForLoader();
   // opertion => selection ,data entry
   let eSelector = ["#name", "textarea.description", "#problem_statement-container .CodeMirror div textarea", "#input_format-container .CodeMirror textarea", "#constraints-container .CodeMirror textarea", "#output_format-container .CodeMirror textarea", "#tags_tag"];
-  // elementwillBefoundpromise
-  // let AllSelectors = [];
-  // for (let i = 0; i < eSelector.length; i++) {
-  //   let elemWillBeFoundPromise =driver.findElement(swd.By.css(eSelector[i]));
-  //   AllSelectors.push(elemWillBeFoundPromise);
-  // }
   let eWillBeselectedPromise = eSelector.map(function (s) {
     return driver.findElement(swd.By.css(s));
   })
