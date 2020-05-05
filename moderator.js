@@ -40,8 +40,7 @@ let uToAdd = process.argv[3];
                 console.log("All Question processed");
                 return;
             }
-            // await handleQuestion(question, process.argv[3]);
-            await handleQuestionRemove(question, uToAdd);
+            await handleQuestion(question, process.argv[3]);
             qidx++;
         }
     } catch (err) {
