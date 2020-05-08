@@ -9,3 +9,6 @@ This requires credential file along with questions/challenges which are to be cr
 
 # Moderator.js
 This file requires credential file along with the username of moderator which you want to add to all the challenges.
+
+# addTestCase.js
+ This file requires the json file of testcases to be added to questions in corresponding order then this script automatically add the testcases to all the challenges
